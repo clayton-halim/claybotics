@@ -1,3 +1,3 @@
 # Claybotics
 
-This README will be updated lzter
+This README will be updated later
