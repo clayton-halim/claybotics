@@ -1,5 +1,5 @@
 import Motor
-import MotorState
+from MotorState import MotorState
 
 class MotorManager():
 	def __init__(self, motorLeft, motorRight):
