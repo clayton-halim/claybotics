@@ -10,44 +10,44 @@ class MotorManager():
 	def setDirection(self, horizontal, depth):
 		if horizontal == "left":
 			if depth == "forward":
-				state = MotorState.FORWARD_LEFT
+				self.state = MotorState.FORWARD_LEFT
 			elif depth == "backward":
-				state = MotorState.BACKWARD_LEFT
+				self.state = MotorState.BACKWARD_LEFT
 			else:
-				state = MotorState.LEFT
+				self.state = MotorState.LEFT
 		elif horizontal == "right":
 			if depth == "forward":
-				state = MotorState.FORWARD_RIGHT
+				self.state = MotorState.FORWARD_RIGHT
 			elif depth == "backward":
-				state = MotorState.BACKWARD_RIGHT
+				self.state = MotorState.BACKWARD_RIGHT
 			else:
-				state = MotorState.RIGHT
+				self.state = MotorState.RIGHT
 		else:
 			if depth == "forward":
-				state = MotorState.FORWARD
+				self.state = MotorState.FORWARD
 			elif depth == "backward":
-				state = MotorState.BACKWARD
+				self.state = MotorState.BACKWARD
 			else:
-				state = MotorState.CENTER
+				self.state = MotorState.CENTER
 
 	def setMovement(self):
-		if state == MotorState.CENTER:
+		if self.state == MotorState.CENTER:
 			self.stop()
-		elif state == MotorState.FORwARD:
+		elif self.state == MotorState.FORwARD:
 			self.forward()
-		elif state == MotorState.BACKWARD:
+		elif self.state == MotorState.BACKWARD:
 			self.backward()
-		elif state == MotorState.RIGHT:
+		elif self.state == MotorState.RIGHT:
 			self.right()
-		elif state == MotorState.LEFT:
+		elif self.state == MotorState.LEFT:
 			self.left()
-		elif state == MotorState.FORWARD_RIGHT:
+		elif self.state == MotorState.FORWARD_RIGHT:
 			self.forwardRight()
-		elif state == MotorState.FORWARD_LEFT:
+		elif self.state == MotorState.FORWARD_LEFT:
 			self.forwardLeft()
-		elif state == BACKWARD_RIGHT:
+		elif self.state == BACKWARD_RIGHT:
 			self.backwardRight()
-		elif state == BACKWARD_LEFT:
+		elif self.state == BACKWARD_LEFT:
 			self.backwardLeft()
 
 	def forward(self):
