@@ -121,29 +121,29 @@ def main():
             
             # handle horizontal movement
             if roiBox[0] < 260:
-                print("left")
+                #print("left")
                 horizontal = "left"
                 #controller.left()
             elif roiBox[0] > 300:
-                print("right")
+                #print("right")
                 horizontal = "right"
                 #controller.right()
             else:
-                print("center")
+                #print("center")
                 horizontal = "center"
                 #controller.stop()
             
             # handle vertical movement
             if roiBox[1] < 200:
-                print("up")
+                #print("up")
                 depth = "forward"
                 #controller.forward()
             elif roiBox[1] > 250:
-                print("down")
+                #print("down")
                 depth = "backward"
                 #controller.backward()
             else:
-                print("center")
+               # print("center")
                 depth = "center"
                 #controller.stop()
             #new code
