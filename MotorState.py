@@ -1,6 +1,4 @@
-from enum import Enum
-
-class MotorState(Enum):
+class MotorState():
 	CENTER = 0
 	FORWARD_LEFT = 1
 	FORWARD = 2
