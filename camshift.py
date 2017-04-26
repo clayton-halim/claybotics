@@ -7,6 +7,7 @@ from picamera.array import PiRGBArray
 from picamera import PiCamera
 import time
 import Motor
+import MotorManager
 
 GPIO.setmode(GPIO.BCM)
 
@@ -20,6 +21,7 @@ Motor2B = 21
 
 motorRight = Motor.Motor(Motor1EN, Motor1A, Motor1B)
 motorLeft = Motor.Motor(Motor2EN, Motor2A, Motor2B)
+controller = MotorManager.MotorManager(motorLeft, motorRight)
 
 """
 GPIO.setup(Motor1EN, GPIO.OUT, initial=GPIO.HIGH)
@@ -104,8 +106,6 @@ def main():
         # grab the current frame
         frame = image.array
      
-        
-     
         # if the see if the ROI has been computed
         if roiBox is not None:
             # convert the current frame to the HSV color space
@@ -120,24 +120,24 @@ def main():
             # handle horizontal movement
             if roiBox[0] < 260:
                 print("left")
+                controller.left()
             elif roiBox[0] > 300:
                 print("right")
+                controller.right()
             else:
                 print("center")
+                controller.stop()
             
             # handle vertical movement
             if roiBox[1] < 200:
                 print("up")
-                motorRight.forward()
-                motorLeft.forward()
+                controller.forward()
             elif roiBox[1] > 250:
                 print("down")
-                motorRight.backward()
-                motorLeft.backward()
+                controller.backward()
             else:
                 print("center")
-                motorLeft.stop()
-                motorRight.stop()
+                controller.stop()
  
             pts = np.int0(cv2.boxPoints(r))
             cv2.polylines(frame, [pts], True, (0, 255, 0), 2)

@@ -10,8 +10,8 @@ class Motor():
         GPIO.setup(pinB, GPIO.OUT, initial=GPIO.LOW)
 
     def forward(self):
-        GPIO.output(self.pinB, GPIO.LOW)
         GPIO.output(self.pinA, GPIO.HIGH)
+        GPIO.output(self.pinB, GPIO.LOW)
         
     def backward(self):
         GPIO.output(self.pinA, GPIO.LOW)
