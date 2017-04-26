@@ -105,6 +105,8 @@ def main():
     for image in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
         # grab the current frame
         frame = image.array
+        horizontal = "center"
+        depth = "center"
      
         # if the see if the ROI has been computed
         if roiBox is not None:
@@ -120,24 +122,33 @@ def main():
             # handle horizontal movement
             if roiBox[0] < 260:
                 print("left")
-                controller.left()
+                horizontal = "left"
+                #controller.left()
             elif roiBox[0] > 300:
                 print("right")
-                controller.right()
+                horizontal = "right"
+                #controller.right()
             else:
                 print("center")
-                controller.stop()
+                horizontal = "center"
+                #controller.stop()
             
             # handle vertical movement
             if roiBox[1] < 200:
                 print("up")
-                controller.forward()
+                depth = "forward"
+                #controller.forward()
             elif roiBox[1] > 250:
                 print("down")
-                controller.backward()
+                depth = "backward"
+                #controller.backward()
             else:
                 print("center")
-                controller.stop()
+                depth = "center"
+                #controller.stop()
+            #new code
+            controller.setDirection(horizontal, depth)
+            controller.setMovement()
  
             pts = np.int0(cv2.boxPoints(r))
             cv2.polylines(frame, [pts], True, (0, 255, 0), 2)
