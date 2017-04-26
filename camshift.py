@@ -19,8 +19,8 @@ Motor2EN = 16
 Motor2A = 20
 Motor2B = 21
 
-motorRight = Motor.Motor(Motor1EN, Motor1A, Motor1B)
-motorLeft = Motor.Motor(Motor2EN, Motor2A, Motor2B)
+motorLeft = Motor.Motor(Motor1EN, Motor1A, Motor1B)
+motorRight = Motor.Motor(Motor2EN, Motor2A, Motor2B)
 controller = MotorManager.MotorManager(motorLeft, motorRight)
 
 """

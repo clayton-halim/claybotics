@@ -87,11 +87,11 @@ class MotorManager():
 		self.mLeft.stop()
 		self.mRight.forward()
 
-	def backwardRight(self):
+	def backwardLeft(self):
 		self.mLeft.backward()
 		self.mRight.stop()
 
-	def backwardLeft(self):
+	def backwardRight(self):
 		self.mLeft.stop()
 		self.mRight.backward()
 
